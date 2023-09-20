@@ -3,7 +3,7 @@ import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {HomeIcon} from '../components';
+import {HomeIcon, TradeIcon, PortifolioIcon} from '../components';
 import {useColors} from '@hooks/use-colors.hook';
 import {HomeTabs, useTabBarDataContext} from '@hooks/useTabBarData.provider';
 import {HomeScreen} from '@screens/home/home.screen';
@@ -12,8 +12,6 @@ import {PortifolioScreen} from '@screens/portifolio/portifolio.screen';
 import {MainStackScreenProps} from './types';
 
 const Tab = createBottomTabNavigator();
-
-const EmptyScreen = () => <View />;
 
 export const HomeTabScreen = () => {
   const colors = useColors();
@@ -42,7 +40,7 @@ export const HomeTabScreen = () => {
         component={TradeScreen}
         options={{
           tabBarIcon: ({focused}) => (
-            <HomeIcon fillColor={fillColor(focused)} />
+            <TradeIcon fillColor={fillColor(focused)} />
           ),
         }}
       />
@@ -51,7 +49,7 @@ export const HomeTabScreen = () => {
         component={PortifolioScreen}
         options={{
           tabBarIcon: ({focused}) => (
-            <HomeIcon fillColor={fillColor(focused)} />
+            <PortifolioIcon fillColor={fillColor(focused)} />
           ),
         }}
       />
@@ -117,7 +115,9 @@ const useStyles = () => {
 
   return StyleSheet.create({
     tabBarContainer: {
-      backgroundColor: colors.gray1,
+      backgroundColor: colors.white,
+      borderTopWidth: 1,
+      borderTopColor: colors.gray6,
     },
     tabBar: {
       flexDirection: 'row',
@@ -134,7 +134,7 @@ const useStyles = () => {
       justifyContent: 'center',
     },
     safeArea: {
-      backgroundColor: colors.gray1,
+      backgroundColor: colors.white,
     },
   });
 };
