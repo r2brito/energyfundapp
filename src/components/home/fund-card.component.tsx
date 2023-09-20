@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, ViewStyle} from 'react-native';
+import {StyleSheet, View, TouchableOpacity} from 'react-native';
 import {useColors} from '@hooks/use-colors.hook';
 
 import IconWind from '@assets/svg/wind.svg';
@@ -13,13 +13,14 @@ import {FontSize, FontWeight} from '../../styles';
 
 interface FundCardProps {
   data: any;
+  onPress: void;
 }
-export const FundCard = ({data}: FundCardProps) => {
+export const FundCard = ({data, onPress}: FundCardProps) => {
   const styles = useStyles();
   const colors = useColors();
 
   return (
-    <View>
+    <TouchableOpacity onPress={onPress}>
       <View
         style={[
           {
@@ -67,7 +68,7 @@ export const FundCard = ({data}: FundCardProps) => {
           </View>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

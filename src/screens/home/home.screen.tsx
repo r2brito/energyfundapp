@@ -27,6 +27,14 @@ const dataFunds = [
     value: '1032.23',
     percentage: '3.51',
     status: 'positive',
+    infos: {
+      AUM: '$430.88m',
+      'Vintage Range': '2019 - 2022',
+      'Price at Close': '$17.68',
+      'Issue Date': '18/04/2022',
+      TER: '0.15%',
+      'Price at Open': '$17.74',
+    },
   },
   {
     id: '2',
@@ -159,7 +167,12 @@ export function HomeScreen({navigation: {navigate}}) {
                 horizontal
                 data={dataFunds}
                 keyExtractor={item => item.id}
-                renderItem={({item}) => <FundCard data={item} />}
+                renderItem={({item}) => (
+                  <FundCard
+                    data={item}
+                    onPress={() => navigate('Details', {fundId: item})}
+                  />
+                )}
                 showsVerticalScrollIndicator={false}
               />
               <View
