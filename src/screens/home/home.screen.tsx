@@ -1,5 +1,11 @@
 import React from 'react';
-import {FlatList, ScrollView, TouchableOpacity, View} from 'react-native';
+import {
+  FlatList,
+  ScrollView,
+  TouchableOpacity,
+  View,
+  Image,
+} from 'react-native';
 import styles from './home.style';
 import {Header} from '@components/header';
 import {ThemedContainer} from '@components/themed-container';
@@ -37,6 +43,18 @@ const dataFunds = [
     value: '1122.95',
     percentage: '0.30',
     status: 'positive',
+  },
+];
+
+const CardsData = [
+  {
+    id: '1',
+    title: 'Why should you invest here?',
+  },
+  {
+    id: '2',
+    title:
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
   },
 ];
 
@@ -147,28 +165,62 @@ export function HomeScreen({navigation: {navigate}}) {
               <View
                 style={{
                   marginTop: 24,
-                  backgroundColor: 'red',
+                  backgroundColor: colors.accent1,
                   padding: 10,
                   flexDirection: 'row',
+                  borderRadius: 10,
+                  justifyContent: 'space-between',
                 }}>
-                <View>
+                <View style={{width: '50%'}}>
                   <ThemedText
-                    type="black"
+                    type="white"
                     style={{
-                      ...FontSize.textLarge,
+                      ...FontSize.textBase,
                       ...FontWeight.Sora.semiBold,
+                      marginBottom: 10,
                     }}>
                     Learn more about carbon credits
                   </ThemedText>
                   <ThemedText
-                    type="black"
+                    type="white"
                     style={{
-                      ...FontSize.textLarge,
-                      ...FontWeight.Sora.semiBold,
+                      ...FontSize.textXS,
+                      ...FontWeight.Sora.regular,
                     }}>
                     Check out our top tips!
                   </ThemedText>
                 </View>
+                <Image source={require('@assets/images/statistics.png')} />
+              </View>
+              <View>
+                <FlatList
+                  data={CardsData}
+                  numColumns={2}
+                  keyExtractor={item => item.id}
+                  renderItem={({item}) => (
+                    <View
+                      style={[
+                        {
+                          backgroundColor: colors.gray6,
+                          padding: 10,
+                          borderRadius: 4,
+                          margin: 5,
+                          height: 240,
+                          width: '50%',
+                          marginTop: 20,
+                        },
+                      ]}>
+                      <ThemedText
+                        type="black"
+                        style={{
+                          ...FontSize.textXS,
+                          ...FontWeight.Sora.semiBold,
+                        }}>
+                        {item.title}
+                      </ThemedText>
+                    </View>
+                  )}
+                />
               </View>
             </View>
           </View>

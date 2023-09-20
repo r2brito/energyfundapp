@@ -19,7 +19,7 @@ export const FundCard = ({data}: FundCardProps) => {
   const colors = useColors();
 
   return (
-    <View style={{}}>
+    <View>
       <View
         style={[
           {
