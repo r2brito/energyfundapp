@@ -53,4 +53,13 @@ export default StyleSheet.create({
     height: 47,
     borderRadius: 4,
   },
+  buttonBuy: {
+    backgroundColor: colors.accent1,
+    borderRadius: 4,
+    height: 52,
+    padding: 5,
+    alignContent: 'center',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
 });

@@ -367,6 +367,46 @@ export function DetailsScreen({
                   </ThemedText>
                 </TouchableOpacity>
               </View>
+              <ThemedText
+                type="gray4"
+                style={{
+                  ...FontSize.textXS,
+                  ...FontWeight.Sora.regular,
+                  marginTop: 10,
+                }}>
+                You’ve previously retired 28 credits of this asset
+              </ThemedText>
+              <View
+                style={{
+                  backgroundColor: colors.gray6,
+                  padding: 5,
+                  borderRadius: 4,
+                  marginTop: 10,
+                  marginBottom: 40,
+                }}>
+                <ThemedText
+                  type="gray3"
+                  style={{
+                    ...FontSize.textXS,
+                    ...FontWeight.Sora.regular,
+                  }}>
+                  Please note that prices are for reference only and may vary at
+                  the time of excecuting a buy or sell order. The information
+                  provided is not investment advice, and should not be used as a
+                  recommendation to buy or sell assets.
+                </ThemedText>
+              </View>
+              <TouchableOpacity style={styles.buttonBuy}>
+                <ThemedText
+                  type="white"
+                  style={{
+                    ...FontSize.textBase,
+                    ...FontWeight.Sora.medium,
+                    marginTop: 10,
+                  }}>
+                  Buy
+                </ThemedText>
+              </TouchableOpacity>
             </View>
           </View>
         </ThemedContainer>
