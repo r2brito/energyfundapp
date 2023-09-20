@@ -1,5 +1,19 @@
 import React from 'react';
-import {ScrollView, View, TouchableOpacity, FlatList} from 'react-native';
+import {
+  ScrollView,
+  View,
+  TouchableOpacity,
+  FlatList,
+  Dimensions,
+} from 'react-native';
+
+import {
+  Chart,
+  Line,
+  Area,
+  HorizontalAxis,
+  VerticalAxis,
+} from 'react-native-responsive-linechart';
 
 import {Header} from '@components/header';
 import {ThemedContainer} from '@components/themed-container';
@@ -15,6 +29,8 @@ import styles from './details.style';
 import {useColors} from '@hooks/use-colors.hook';
 import {HighlightedComponent} from '@components/index';
 
+export const {width: SIZE} = Dimensions.get('window');
+
 const dataMockHighlighted = [
   {
     text: 'Aspira is building a modular, direct air capture system with the energy supply integrated into the modules.',
@@ -28,6 +44,23 @@ const dataMockHighlighted = [
   {
     text: 'Aspira is building a modular, direct air capture system with the energy supply integrated into the modules. Read more',
   },
+];
+
+export const data = [
+  {x: 1453075200, y: 1.47},
+  {x: 1453161600, y: 1.37},
+  {x: 1453248000, y: 1.53},
+  {x: 1453334400, y: 1.54},
+  {x: 1453420800, y: 1.52},
+  {x: 1453507200, y: 2.03},
+  {x: 1453593600, y: 2.1},
+  {x: 1453680000, y: 2.5},
+  {x: 1453766400, y: 2.3},
+  {x: 1453852800, y: 2.42},
+  {x: 1453939200, y: 2.55},
+  {x: 1454025600, y: 2.41},
+  {x: 1454112000, y: 2.43},
+  {x: 1454198400, y: 2.2},
 ];
 
 export function DetailsScreen({
@@ -111,7 +144,48 @@ export function DetailsScreen({
                 3.51% ($1.21)
               </ThemedText>
             </View>
-            <View style={{height: 150, backgroundColor: 'red'}}></View>
+            <View style={{backgroundColor: 'red'}}>
+              <Chart
+                style={{height: 200, width: 400}}
+                data={[
+                  {x: -2, y: 15},
+                  {x: -1, y: 10},
+                  {x: 0, y: 12},
+                  {x: 1, y: 7},
+                  {x: 2, y: 6},
+                  {x: 3, y: 8},
+                  {x: 4, y: 10},
+                  {x: 5, y: 8},
+                  {x: 6, y: 12},
+                  {x: 7, y: 14},
+                  {x: 8, y: 12},
+                  {x: 9, y: 13.5},
+                  {x: 10, y: 18},
+                ]}
+                padding={{left: 40, bottom: 20, right: 20, top: 20}}
+                xDomain={{min: -2, max: 10}}
+                yDomain={{min: 0, max: 20}}>
+                <VerticalAxis
+                  tickCount={11}
+                  theme={{labels: {formatter: v => v.toFixed(2)}}}
+                />
+                <HorizontalAxis tickCount={5} />
+                <Area
+                  theme={{
+                    gradient: {
+                      from: {color: '#ffa502'},
+                      to: {color: '#ffa502', opacity: 0.4},
+                    },
+                  }}
+                />
+                <Line
+                  theme={{
+                    stroke: {color: '#ffa502', width: 5},
+                    scatter: {default: {width: 4, height: 4, rx: 2}},
+                  }}
+                />
+              </Chart>
+            </View>
             <View>
               <ThemedText
                 type="black"
