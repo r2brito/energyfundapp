@@ -18,6 +18,6 @@
       "@styles/*": ["./src/styles/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "declarations.d.ts"],
   "exclude": ["node_modules", "<node_internals>/**", "bin/**"]
 }

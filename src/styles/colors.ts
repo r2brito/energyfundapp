@@ -9,4 +9,6 @@ export const Colors = {
   accent1: '#770FDF',
   green1: '#0FDF8F',
   white: '#FFF',
+
+  transparent: 'transparent',
 };
