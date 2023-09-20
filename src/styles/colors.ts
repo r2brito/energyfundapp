@@ -9,6 +9,7 @@ export const Colors = {
   accent1: '#770FDF',
   accent2: '#F7EFFF',
   green1: '#0FDF8F',
+  red1: '#EE8688',
   white: '#FFF',
 
   transparent: 'transparent',

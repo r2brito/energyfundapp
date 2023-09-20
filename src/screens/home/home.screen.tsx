@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, TouchableOpacity, View} from 'react-native';
+import {FlatList, ScrollView, TouchableOpacity, View} from 'react-native';
 import styles from './home.style';
 import {Header} from '@components/header';
 import {ThemedContainer} from '@components/themed-container';
@@ -9,9 +9,36 @@ import IconAccount from '@assets/svg/account.svg';
 import IconNotification from '@assets/svg/notification.svg';
 import IconUp from '@assets/svg/up.svg';
 import IconRewards from '@assets/svg/rewards.svg';
-import IconWind from '@assets/svg/wind.svg';
 
 import {useColors} from '@hooks/use-colors.hook';
+import {FundCard} from '@components/home';
+
+const dataFunds = [
+  {
+    id: '1',
+    icon: 'wind',
+    title: 'Wind Fund',
+    value: '1032.23',
+    percentage: '3.51',
+    status: 'positive',
+  },
+  {
+    id: '2',
+    icon: 'sun',
+    title: 'Solar Fund',
+    value: '1032.23',
+    percentage: '3.51',
+    status: 'negative',
+  },
+  {
+    id: '3',
+    icon: 'nature',
+    title: 'Nature',
+    value: '1122.95',
+    percentage: '0.30',
+    status: 'positive',
+  },
+];
 
 export function HomeScreen({navigation: {navigate}}) {
   const colors = useColors();
@@ -110,36 +137,37 @@ export function HomeScreen({navigation: {navigate}}) {
                 style={{...FontSize.textLarge, ...FontWeight.Sora.semiBold}}>
                 Funds
               </ThemedText>
-              <View style={styles.row}>
+              <FlatList
+                horizontal
+                data={dataFunds}
+                keyExtractor={item => item.id}
+                renderItem={({item}) => <FundCard data={item} />}
+                showsVerticalScrollIndicator={false}
+              />
+              <View
+                style={{
+                  marginTop: 24,
+                  backgroundColor: 'red',
+                  padding: 10,
+                  flexDirection: 'row',
+                }}>
                 <View>
-                  <IconWind />
                   <ThemedText
                     type="black"
                     style={{
                       ...FontSize.textLarge,
                       ...FontWeight.Sora.semiBold,
                     }}>
-                    Wind Fund
+                    Learn more about carbon credits
                   </ThemedText>
-                  <View></View>
-                  <View>
-                    <ThemedText
-                      type="black"
-                      style={{
-                        ...FontSize.textLarge,
-                        ...FontWeight.Sora.semiBold,
-                      }}>
-                      $1032.23
-                    </ThemedText>
-                    <ThemedText
-                      type="black"
-                      style={{
-                        ...FontSize.textLarge,
-                        ...FontWeight.Sora.semiBold,
-                      }}>
-                      3.51%
-                    </ThemedText>
-                  </View>
+                  <ThemedText
+                    type="black"
+                    style={{
+                      ...FontSize.textLarge,
+                      ...FontWeight.Sora.semiBold,
+                    }}>
+                    Check out our top tips!
+                  </ThemedText>
                 </View>
               </View>
             </View>
