@@ -1,8 +1,8 @@
 import React from 'react';
 import {ScrollView, View} from 'react-native';
-import styles from './home.style';
+import styles from './portifolio.style';
 
-export function HomeScreen({navigation: {navigate}}) {
+export function PortifolioScreen({navigation: {navigate}}) {
   return (
     <View style={styles.root}>
       <ScrollView keyboardShouldPersistTaps="always" />

@@ -1,8 +1,8 @@
 import React from 'react';
 import {ScrollView, View} from 'react-native';
-import styles from './home.style';
+import styles from './trade.style';
 
-export function HomeScreen({navigation: {navigate}}) {
+export function TradeScreen({navigation: {navigate}}) {
   return (
     <View style={styles.root}>
       <ScrollView keyboardShouldPersistTaps="always" />
