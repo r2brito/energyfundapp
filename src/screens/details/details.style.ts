@@ -42,4 +42,15 @@ export default StyleSheet.create({
     color: colors.white,
     marginBottom: 20,
   },
+  button: {
+    backgroundColor: 'red',
+    flex: 1,
+    margin: 5,
+    alignItems: 'center',
+    alignContent: 'center',
+    textAlign: 'center',
+    alignSelf: 'center',
+    height: 47,
+    borderRadius: 4,
+  },
 });

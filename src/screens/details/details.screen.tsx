@@ -8,6 +8,7 @@ import {FontSize, FontWeight} from '../../styles';
 
 import IconLeft from '@assets/svg/left.svg';
 import IconUp from '@assets/svg/up.svg';
+import IconPortifolio from '@assets/svg/portifolio.svg';
 
 import styles from './details.style';
 
@@ -254,69 +255,118 @@ export function DetailsScreen({
                 }}>
                 Fund Breakdown
               </ThemedText>
-              <ScrollView>
-                <View style={styles.row}>
-                  <ThemedText fontWeight="600" style={styles.labelTitles}>
-                    Highlighted
+              <View style={styles.row}>
+                <ThemedText fontWeight="600" style={styles.labelTitles}>
+                  Highlighted
+                </ThemedText>
+                <FlatList
+                  horizontal
+                  data={dataMockHighlighted}
+                  renderItem={({item}) => (
+                    <HighlightedComponent text={item.text} />
+                  )}
+                />
+              </View>
+            </View>
+            <View>
+              <View style={{flexDirection: 'row'}}>
+                <IconPortifolio />
+                <ThemedText
+                  type="black"
+                  style={{
+                    ...FontSize.textSM,
+                    ...FontWeight.Sora.regular,
+                  }}>
+                  Your Portfolio
+                </ThemedText>
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignContent: 'space-between',
+                  marginTop: 10,
+                  marginBottom: 10,
+                }}>
+                <View
+                  style={{
+                    flexDirection: 'column',
+                    width: '50%',
+                  }}>
+                  <ThemedText
+                    type="black"
+                    style={{
+                      ...FontSize.title2,
+                      ...FontWeight.Sora.semiBold,
+                    }}>
+                    18 credits
                   </ThemedText>
-                  <FlatList
-                    horizontal
-                    data={dataMockHighlighted}
-                    renderItem={({item}) => (
-                      <HighlightedComponent text={item.text} />
-                    )}
-                  />
+                  <ThemedText
+                    type="green1"
+                    style={{
+                      ...FontSize.textSM,
+                      ...FontWeight.Sora.regular,
+                    }}>
+                    8.41%
+                  </ThemedText>
                 </View>
-                {/* <View style={styles.row}>
-                  <ThemedText fontWeight="600" style={styles.labelTitles}>
-                    Value
+                <View
+                  style={{
+                    flexDirection: 'column',
+                    width: '50%',
+                    alignItems: 'flex-end',
+                  }}>
+                  <ThemedText
+                    type="black"
+                    style={{
+                      ...FontSize.title2,
+                      ...FontWeight.Sora.semiBold,
+                    }}>
+                    $328.14
                   </ThemedText>
-                  <FlatList
-                    data={dataMockHighlighted}
-                    renderItem={({item}) => <ValueComponent text={item.text} />}
-                  />
-                </View> */}
-                {/* <View style={styles.row}>
-                  <ThemedText fontWeight="600" style={styles.labelTitles}>
-                    Vintage
+                  <ThemedText
+                    type="gray3"
+                    style={{
+                      ...FontSize.textSM,
+                      ...FontWeight.Sora.regular,
+                    }}>
+                    Last purchase 28d ago
                   </ThemedText>
-                  <FlatList
-                    data={dataMockHighlighted}
-                    ListEmptyComponent={emptyContent}
-                    numColumns={2}
-                    renderItem={({item}) => (
-                      <VintageComponent
-                        name={item.name}
-                        username={item.username}
-                        img={item.img}
-                        onPressFollow={() =>
-                          navigate('ProfileFeed', {profileId: item})
-                        }
-                      />
-                    )}
-                  />
-                </View> */}
-                {/* <View style={styles.row}>
-                  <ThemedText fontWeight="600" style={styles.labelTitles}>
-                    Registry
+                </View>
+              </View>
+              <View
+                style={{flexDirection: 'row', alignContent: 'space-between'}}>
+                <TouchableOpacity
+                  style={[
+                    styles.button,
+                    {
+                      backgroundColor: colors.white,
+                      borderWidth: 2,
+                      borderColor: colors.gray5,
+                    },
+                  ]}>
+                  <ThemedText
+                    type="accent1"
+                    style={{
+                      ...FontSize.textBase,
+                      ...FontWeight.Sora.medium,
+                      marginTop: 10,
+                    }}>
+                    Sell
                   </ThemedText>
-                  <FlatList
-                    data={dataMockHighlighted}
-                    ListEmptyComponent={emptyContent}
-                    numColumns={2}
-                    renderItem={({item}) => (
-                      <RegistryComponent
-                        name={item.name}
-                        username={item.username}
-                        img={item.img}
-                        onPressFollow={() =>
-                          navigate('ProfileFeed', {profileId: item})
-                        }
-                      />
-                    )}
-                  />
-                </View> */}
-              </ScrollView>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[styles.button, {backgroundColor: colors.green1}]}>
+                  <ThemedText
+                    type="white"
+                    style={{
+                      ...FontSize.textBase,
+                      ...FontWeight.Sora.medium,
+                      marginTop: 10,
+                    }}>
+                    Retire credits
+                  </ThemedText>
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
         </ThemedContainer>
