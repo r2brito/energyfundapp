@@ -7,13 +7,7 @@ import {
   Dimensions,
 } from 'react-native';
 
-import {
-  Chart,
-  Line,
-  Area,
-  HorizontalAxis,
-  VerticalAxis,
-} from 'react-native-responsive-linechart';
+import {Chart, Line} from 'react-native-responsive-linechart';
 
 import {Header} from '@components/header';
 import {ThemedContainer} from '@components/themed-container';
@@ -144,17 +138,17 @@ export function DetailsScreen({
                 3.51% ($1.21)
               </ThemedText>
             </View>
-            <View style={{backgroundColor: 'red'}}>
+            <View style={{backgroundColor: 'transparent'}}>
               <Chart
-                style={{height: 200, width: 400}}
+                style={{height: 200, width: '100%'}}
                 data={[
                   {x: -2, y: 15},
                   {x: -1, y: 10},
                   {x: 0, y: 12},
                   {x: 1, y: 7},
                   {x: 2, y: 6},
-                  {x: 3, y: 8},
-                  {x: 4, y: 10},
+                  {x: 3, y: 3},
+                  {x: 4, y: 5},
                   {x: 5, y: 8},
                   {x: 6, y: 12},
                   {x: 7, y: 14},
@@ -162,28 +156,11 @@ export function DetailsScreen({
                   {x: 9, y: 13.5},
                   {x: 10, y: 18},
                 ]}
-                padding={{left: 40, bottom: 20, right: 20, top: 20}}
+                padding={{left: 10, bottom: 20, right: 20, top: 20}}
                 xDomain={{min: -2, max: 10}}
-                yDomain={{min: 0, max: 20}}>
-                <VerticalAxis
-                  tickCount={11}
-                  theme={{labels: {formatter: v => v.toFixed(2)}}}
-                />
-                <HorizontalAxis tickCount={5} />
-                <Area
-                  theme={{
-                    gradient: {
-                      from: {color: '#ffa502'},
-                      to: {color: '#ffa502', opacity: 0.4},
-                    },
-                  }}
-                />
-                <Line
-                  theme={{
-                    stroke: {color: '#ffa502', width: 5},
-                    scatter: {default: {width: 4, height: 4, rx: 2}},
-                  }}
-                />
+                yDomain={{min: -4, max: 20}}>
+                {/* <HorizontalAxis tickValues={[-2, 0, 2, 6, 8, 10]} /> */}
+                <Line theme={{stroke: {color: '#44bd32', width: 2}}} />
               </Chart>
             </View>
             <View>
