@@ -6,6 +6,7 @@ import {useColors} from '../src/hooks/use-colors.hook';
 import {useFonts} from '@hooks/use-fonts.hook';
 import {RootStackScreen} from '@routes/root-stack.screen';
 import {TabBarDataProvider} from './hooks/useTabBarData.provider';
+import {LoginProvider} from './hooks/use-login.provider';
 
 UIManager.setLayoutAnimationEnabledExperimental &&
   UIManager.setLayoutAnimationEnabledExperimental(true);
@@ -48,7 +49,9 @@ export default function App() {
         <Suspense
           fallback={<View style={{flex: 1, backgroundColor: 'yellow'}} />}>
           <TabBarDataProvider>
-            <RootStackScreen />
+            <LoginProvider>
+              <RootStackScreen />
+            </LoginProvider>
           </TabBarDataProvider>
         </Suspense>
       </PaperProvider>

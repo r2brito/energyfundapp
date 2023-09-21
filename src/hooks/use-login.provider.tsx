@@ -44,7 +44,7 @@ const reducer = (state, action) => {
 };
 
 async function mockupLogin(email, password) {
-  if (email === 'usuario@teste.com' && password === '123456') {
+  if (email === 'john@doe.com' && password === '12345678') {
     return {
       user: {
         id: '1',
@@ -76,7 +76,7 @@ function useAuth() {
     loadUserFromStorage();
   }, []);
 
-  async function login(email, password) {
+  async function loginWithUsernamePassword(email, password) {
     dispatch({type: 'LOGIN_START'});
 
     try {
@@ -96,9 +96,9 @@ function useAuth() {
 
   return {
     ...state,
-    login,
+    loginWithUsernamePassword,
     logout,
   };
 }
 
-export const [AuthProvider, useAuthContext] = constate(useAuth);
+export const [LoginProvider, useLoginContext] = constate(useAuth);

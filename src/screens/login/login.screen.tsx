@@ -16,6 +16,7 @@ import {FontSize, FontWeight} from '../../styles';
 
 import {useTextInput} from '@hooks/use-text-input';
 import {useColors} from '@hooks/use-colors.hook';
+import {useLoginContext} from '@hooks/use-login.provider';
 
 import {validateEmail} from '../../helpers/form-validation/validate-email';
 import {validatePassword} from '../../helpers/form-validation/validate-password';
@@ -29,6 +30,16 @@ export function LoginScreen({navigation: {navigate}}) {
   const passwordInputRef = useRef(null);
   const [username, usernameValid] = useTextInput(null, validateEmail);
   const [password, passwordValid] = useTextInput(null, validatePassword);
+
+  const {errors, loading, loginWithUsernamePassword} = useLoginContext();
+
+  const login = async () => {
+    if (passwordValid) {
+      loginWithUsernamePassword(username.value, password.value);
+    } else {
+      console.log('Erro ao fazer Login');
+    }
+  };
 
   return (
     <KeyboardAvoidingView
@@ -100,9 +111,7 @@ export function LoginScreen({navigation: {navigate}}) {
               {...password}
             />
 
-            <TouchableOpacity
-              style={styles.buttonLogin}
-              onPress={() => navigate('Tab')}>
+            <TouchableOpacity style={styles.buttonLogin} onPress={login}>
               <ThemedText
                 type="gray5"
                 style={{
