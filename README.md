@@ -1,79 +1,39 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Challenger
 
-# Getting Started
+> **Note**: Desafio para a vaga de react-native Frontend
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Project instructions
 
-## Step 1: Start the Metro Server
+Create a React Native App, which needs to work on Adnroid and IOS, using Redux and following the example layout. All data and information can be mocked. No Backend or Database required.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+Login
 
-To start Metro, run the following command from the _root_ of your React Native project:
+- Login form, redirecting to the home screen
+  Sign up
+- Sign up form, show success screen when registering, need to agree with terms and conditions to enable submission button and no need to link terms and conditions to any screen
+- After registration, show success screen and return to login
+  Home
+- Present at least 3 different types of assets/funds, with mock graphics and values
+- Bottom menu with 3 options - (Home, Trade and Portfolio) - Trade and Portfolio can lead to a blank page containing a title and lorem ipsum text
+  Asset details
+- Screen to present details of the selected asset/fund. The layout is an illustration of the information that should appear. Use your creativity and you can use images of your choice to compose the details
 
-```bash
-# using npm
-npm start
+## O que foi realizado
 
-# OR using Yarn
-yarn start
-```
+Minha visão para o projeto foi criar uma estrutura com componentes reutilizaveis, baseado no que o projeto pedia, já defini fonts, cores, e tamanhos de acordo o figma.
+Devido ao prazo de entrega, alguns detalhes do layout não foram feitos.
+O uso do redux está presente no login usando um provider para isso. De acordo com os dados obtidos no app. usaria a mesma estrutura ou parecida, tendo providers isolados para obter os dados de uma api por exemplo.
 
-## Step 2: Start your Application
+## Instructions
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### For iOS
+Para logar no app.
 
 ```bash
-# using npm
-npm run ios
+# email
+john@doe.com
 
-# OR using Yarn
-yarn ios
+# password
+12345678
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Para logout, use o ícone account que está presente na Home
