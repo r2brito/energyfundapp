@@ -10,6 +10,7 @@ import styles from './home.style';
 import {Header} from '@components/header';
 import {ThemedContainer} from '@components/themed-container';
 import {ThemedText} from '@components/themed-text';
+import {FundCard} from '@components/home';
 import {FontSize, FontWeight} from '../../styles';
 import IconAccount from '@assets/svg/account.svg';
 import IconNotification from '@assets/svg/notification.svg';
@@ -17,7 +18,7 @@ import IconUp from '@assets/svg/up.svg';
 import IconRewards from '@assets/svg/rewards.svg';
 
 import {useColors} from '@hooks/use-colors.hook';
-import {FundCard} from '@components/home';
+import {useLoginContext} from '@hooks/use-login.provider';
 
 const dataFunds = [
   {
@@ -68,6 +69,7 @@ const CardsData = [
 
 export function HomeScreen({navigation: {navigate}}) {
   const colors = useColors();
+  const {logout} = useLoginContext();
 
   return (
     <View style={styles.root}>
@@ -76,7 +78,9 @@ export function HomeScreen({navigation: {navigate}}) {
           <Header
             titleAlignment="center"
             leftComponent={
-              <TouchableOpacity style={styles.accountIcon}>
+              <TouchableOpacity
+                style={styles.accountIcon}
+                onPress={() => logout()}>
                 <IconAccount />
               </TouchableOpacity>
             }

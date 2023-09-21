@@ -122,16 +122,18 @@ export function LoginScreen({navigation: {navigate}}) {
                 Login
               </ThemedText>
             </TouchableOpacity>
-            <ThemedText
-              type="gray5"
-              style={{
-                ...FontSize.textXS,
-                ...FontWeight.Sora.regular,
-                textAlign: 'center',
-                marginTop: 10,
-              }}>
-              Don’t have an account? Sign up here
-            </ThemedText>
+            <TouchableOpacity onPress={() => navigate('SignupScreen')}>
+              <ThemedText
+                type="gray5"
+                style={{
+                  ...FontSize.textXS,
+                  ...FontWeight.Sora.regular,
+                  textAlign: 'center',
+                  marginTop: 10,
+                }}>
+                {'Don’t have an account? Sign up here'}
+              </ThemedText>
+            </TouchableOpacity>
           </View>
         </ThemedContainer>
       </ScrollView>
