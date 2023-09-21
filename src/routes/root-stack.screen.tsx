@@ -10,9 +10,9 @@ const RootStack = createStackNavigator();
 function _RootStackScreen() {
   let navigator: JSX.Element;
   navigator = 'token?.access' ? (
-    <RootStack.Screen name="Main" component={MainStackScreen} />
-  ) : (
     <RootStack.Screen name="LoginMain" component={LoginStackScreen} />
+  ) : (
+    <RootStack.Screen name="Main" component={MainStackScreen} />
   );
 
   return (
